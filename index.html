@@ -28,6 +28,10 @@
       }
     }
   </script>
+
+
+
+
   <style>
     html { scroll-behavior: smooth; }
     /* Hero background image */
@@ -324,5 +328,28 @@
       });
     })();
   </script>
+
+<script>
+(function () {
+  if (window.__BIZCHAT_INITIALIZED__) return;
+  window.__BIZCHAT_INITIALIZED__ = true;
+
+  var script = document.createElement('script');
+  script.src = 'https://widget.bizchat-ai.com/dist/bizchat.js';
+  script.async = true;
+
+  script.onload = function () {
+    if (!window.BizChat || !window.BizChat.init) return;
+
+    window.BizChat.init({
+      USER_ID: '019ac402-7e16-70ed-a7d3-c61921627ea5',
+      TITLE: 'Smart App AI - Do Not Use *',
+      API_KEY: 'cba2b73ba81da00d7750255e09f6f8f6'
+    });
+  };
+
+  document.head.appendChild(script);
+})();
+</script>
 </body>
 </html>
