@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hope Together | Non-Profit Charity</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['DM Sans', 'system-ui', 'sans-serif'],
+            display: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            charity: {
+              teal: '#0d9488',
+              'teal-dark': '#0f766e',
+              cream: '#fef7ed',
+              warm: '#f59e0b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    /* Hero background image */
+    .hero-bg {
+      background-image: url('https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(254, 247, 237, 0.92) 0%, rgba(254, 247, 237, 0.75) 50%, rgba(254, 247, 237, 0.4) 100%);
+      z-index: 0;
+    }
+    .hero-bg > * {
+      position: relative;
+      z-index: 1;
+    }
+    /* Sections with fixed (attached) background image */
+    .bg-fixed {
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+    .bg-fixed::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .bg-fixed > * {
+      position: relative;
+      z-index: 1;
+    }
+    .impact-bg::before {
+      background: rgba(255, 255, 255, 0.88);
+    }
+    .stories-bg::before {
+      background: rgba(254, 247, 237, 0.9);
+    }
+    @media (max-width: 768px) {
+      .bg-fixed {
+        background-attachment: scroll;
+      }
+    }
+    /* Active nav item */
+    .nav-link.active {
+      color: #0d9488;
+      font-weight: 600;
+      border-bottom: 2px solid #0d9488;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 antialiased">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="font-display text-2xl font-bold text-charity-teal">Hope Together</a>
+      <ul class="hidden md:flex items-center gap-8">
+        <li><a href="#about" class="nav-link text-gray-600 hover:text-charity-teal transition" data-section="about">About</a></li>
+        <li><a href="#features" class="nav-link text-gray-600 hover:text-charity-teal transition" data-section="features">Our Work</a></li>
+        <li><a href="#contact" class="nav-link text-gray-600 hover:text-charity-teal transition" data-section="contact">Contact</a></li>
+        <li><a href="#contact" class="bg-charity-teal text-white px-5 py-2.5 rounded-lg hover:bg-charity-teal-dark transition font-medium">Donate</a></li>
+      </ul>
+      <button class="md:hidden p-2 text-gray-600" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Landing Section -->
+  <section id="about" class="hero-bg min-h-screen flex items-center pt-20">
+    <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-charity-teal font-medium uppercase tracking-wider text-sm mb-4">Making a difference since 2010</p>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+          Together we can <span class="text-charity-teal">change lives</span>
+        </h1>
+        <p class="text-lg text-gray-600 mb-8 max-w-lg">
+          We believe everyone deserves hope. Join us in providing food, shelter, and education to communities in need around the world.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="bg-charity-teal text-white px-8 py-4 rounded-lg hover:bg-charity-teal-dark transition font-medium shadow-lg shadow-charity-teal/25">Get Involved</a>
+          <a href="#features" class="border-2 border-charity-teal text-charity-teal px-8 py-4 rounded-lg hover:bg-charity-teal hover:text-white transition font-medium">Our Mission</a>
+        </div>
+      </div>
+      <div class="relative hidden md:block">
+        <div class="aspect-square rounded-2xl bg-gradient-to-br from-charity-teal to-charity-teal-dark opacity-90 flex items-center justify-center">
+          <svg class="w-32 h-32 text-white/90" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">How We Help</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Our programs focus on the areas where your support creates the greatest impact.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-2xl bg-charity-cream border border-amber-100 hover:shadow-lg transition">
+          <div class="w-14 h-14 rounded-xl bg-charity-teal/10 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-charity-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Shelter & Housing</h3>
+          <p class="text-gray-600">Safe housing for families in crisis. We build and repair homes so everyone has a place to call home.</p>
+        </div>
+        <div class="p-8 rounded-2xl bg-charity-cream border border-amber-100 hover:shadow-lg transition">
+          <div class="w-14 h-14 rounded-xl bg-charity-teal/10 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-charity-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Education</h3>
+          <p class="text-gray-600">Schools, scholarships, and learning materials for children who otherwise wouldn’t have access to education.</p>
+        </div>
+        <div class="p-8 rounded-2xl bg-charity-cream border border-amber-100 hover:shadow-lg transition">
+          <div class="w-14 h-14 rounded-xl bg-charity-teal/10 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-charity-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Food & Relief</h3>
+          <p class="text-gray-600">Emergency food aid and long-term nutrition programs in regions affected by poverty and disaster.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section - fixed background image -->
+  <section id="impact" class="bg-fixed impact-bg py-24" style="background-image: url('https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <p class="text-charity-teal font-medium uppercase tracking-wider text-sm mb-4">Real impact</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Work in Action</h2>
+          <p class="text-gray-600 mb-6">Every day, volunteers and donors like you help us deliver food, supplies, and hope to families in need. See how your support turns into real change in communities around the world.</p>
+          <a href="#contact" class="inline-flex items-center text-charity-teal font-medium hover:text-charity-teal-dark transition">Get involved <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+        <div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl aspect-[4/3] bg-gray-200">
+          <img src="https://images.pexels.com/photos/6646926/pexels-photo-6646926.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Volunteers handing out donations" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stories / Community Section - fixed background image -->
+  <section class="bg-fixed stories-bg py-24" style="background-image: url('https://images.pexels.com/photos/6995298/pexels-photo-6995298.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] bg-gray-200">
+          <img src="https://images.pexels.com/photos/6646947/pexels-photo-6646947.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Group preparing food and medicine boxes" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <p class="text-charity-teal font-medium uppercase tracking-wider text-sm mb-4">Community first</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">Serving Meals, Building Hope</h2>
+          <p class="text-gray-600 mb-6">Our meal distribution programs bring volunteers and neighbors together. From weekly community dinners to emergency food relief, we're committed to ensuring no one in our community goes hungry.</p>
+          <blockquote class="border-l-4 border-charity-teal pl-6 italic text-gray-700">"Hope Together gave my family more than food—they gave us a sense of belonging."</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery / Join Us Section - multiple Pexels images -->
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Join Our Movement</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Whether you donate time, goods, or funds—every act of kindness counts. Be part of the change.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="rounded-2xl overflow-hidden shadow-lg group">
+          <img src="https://images.pexels.com/photos/6646926/pexels-photo-6646926.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Volunteers handing out donations" class="w-full h-64 object-cover group-hover:scale-105 transition duration-300">
+          <div class="p-6 bg-charity-cream">
+            <h3 class="font-display font-semibold text-gray-900 mb-2">Donate Goods</h3>
+            <p class="text-gray-600 text-sm">Drop off clothing, food, or supplies at any of our locations.</p>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-lg group">
+          <img src="https://images.pexels.com/photos/6646947/pexels-photo-6646947.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Group preparing food and medicine boxes" class="w-full h-64 object-cover group-hover:scale-105 transition duration-300">
+          <div class="p-6 bg-charity-cream">
+            <h3 class="font-display font-semibold text-gray-900 mb-2">Volunteer</h3>
+            <p class="text-gray-600 text-sm">Pack boxes, serve meals, or lend a hand at our events.</p>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-lg group">
+          <img src="https://images.pexels.com/photos/6646904/pexels-photo-6646904.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Volunteer loading food supplies" class="w-full h-64 object-cover group-hover:scale-105 transition duration-300">
+          <div class="p-6 bg-charity-cream">
+            <h3 class="font-display font-semibold text-gray-900 mb-2">Give Financially</h3>
+            <p class="text-gray-600 text-sm">Your donation helps us reach more families every month.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="#contact" class="inline-block bg-charity-teal text-white px-8 py-4 rounded-lg font-medium hover:bg-charity-teal-dark transition shadow-lg shadow-charity-teal/25">Start Making a Difference</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="py-24 bg-charity-cream">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+        <p class="text-gray-600">Have a question or want to volunteer? Send us a message and we’ll get back to you soon.</p>
+      </div>
+      <form class="bg-white rounded-2xl shadow-lg p-8 md:p-10 space-y-6 border border-amber-100">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+          <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-charity-teal focus:border-transparent outline-none transition" placeholder="Jane Doe">
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+          <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-charity-teal focus:border-transparent outline-none transition" placeholder="jane@example.com">
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+          <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-charity-teal focus:border-transparent outline-none transition resize-none" placeholder="How can we help?"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-charity-teal text-white py-4 rounded-lg font-medium hover:bg-charity-teal-dark transition shadow-lg shadow-charity-teal/25">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div class="md:col-span-2">
+          <a href="#" class="font-display text-2xl font-bold text-white">Hope Together</a>
+          <p class="mt-4 max-w-sm text-gray-400">Building a better future through community, compassion, and action. Every donation and hour of volunteer time counts.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+            <li><a href="#features" class="hover:text-white transition">Our Work</a></li>
+            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+            <li><a href="#" class="hover:text-white transition">Donate</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Connect</h4>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-charity-teal transition" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-charity-teal transition" aria-label="Twitter">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-charity-teal transition" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+        <p>&copy; 2025 Hope Together. All rights reserved. Registered charity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var sections = document.querySelectorAll('section[id="about"], section[id="features"], section[id="contact"]');
+      var navLinks = document.querySelectorAll('.nav-link');
+      var headerOffset = 120;
+
+      function setActiveSection() {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        var current = 'about';
+        sections.forEach(function(section) {
+          var top = section.offsetTop - headerOffset;
+          var height = section.offsetHeight;
+          if (scrollY >= top && scrollY < top + height) {
+            current = section.getAttribute('id');
+          }
+        });
+        navLinks.forEach(function(link) {
+          if (link.getAttribute('data-section') === current) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      setActiveSection();
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(setActiveSection);
+      });
+    })();
+  </script>
+</body>
+</html>
